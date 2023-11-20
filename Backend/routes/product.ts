@@ -9,12 +9,10 @@ interface IRequestBody {
     newtext: string
 }
 Router.get("/", async (req: Request, res: Response): Promise<void> => {
-    console.log("hello")
     try {
         const data = await User.find(); 
         res.status(200).json(data);
-    } catch (err) {
-        console.log(err);  
+    } catch (err) { 
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
@@ -32,7 +30,6 @@ Router.post("/add", async (req: Request<IRequestBody>, res: Response): Promise<v
         await user.save();
         res.status(200).json({ message: "Text saved" });
     } catch (err) {
-        console.log(err);
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
@@ -54,7 +51,6 @@ Router.post("/updatetext", async (req: Request<IRequestBody>, res: Response) => 
         res.status(200).json({ message: "newtext updated" });
 
     } catch (err) {
-        console.log(err);
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
@@ -74,7 +70,6 @@ Router.post("/del", async (req: Request<IRequestBody>, res: Response) => {
         res.status(200).json({ message: "newtext updated" });
 
     } catch (err) {
-        console.log(err);
         res.status(500).json({ message: "Internal Server Error" });
     }
 });

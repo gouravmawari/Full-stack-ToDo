@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-// const cors = require('cors')
 import cors from 'cors';
 import mongoose, { connect } from "mongoose";
 const app = express()
